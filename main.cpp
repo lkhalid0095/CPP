@@ -24,18 +24,18 @@ using namespace std;
         case 8:
         case 10:
         case 12:
-         cout << "31\n";
+         cout << "This month has 31 days.\n";
          break;
 
        case 4:
        case 6:
        case 9:
        case 11:
-          cout<< "30\n";
+          cout<< "This month has 30 days.\n";
         break;
 
        case 2:
-        cout << "28\n";
+        cout << "This month has 28 days.\n";
          break;
       //default case is if the user inputs an invalid number
       default:
@@ -62,22 +62,51 @@ using namespace std;
        cout << " "; 
      }
      //finds the max number in array
-     for (int i=0; i<9; i++){
-       if(arr[i] < arr[i+1]){
-         max = arr[i+1];
+     max = arr[0];
+     for (int i=0; i<10; i++){
+       if(max < arr[i]){
+         max = arr[i];
         }
        }
       cout << "\nThe max in the array is " << max << "\n";
        
   }
-  //user defined 2D array
+  //user defined 2D array using for loop
   void partThree(){
-    
+    //ask user to input size for 2D array
+    int rows;
+    int col;
+    cout<< "Enter # of rows\n";
+    cin>> rows;
+    cout<< "Enter # of columns\n";
+    cin>> col;
+    int arr[rows][col];
+    //take input from user
+    for(int i =0; i<rows;i++){
+      for(int j=0; j<col;j++){
+      cout<< "Enter input for row "<< i << ", column " << j << ": ";
+      int num;
+      cin >> num;
+    //initalize the 2D array
+      arr[i][j] = num;
+    }
+    }
+    //display 2D array
+        for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            cout << "[" << i
+                 << "][" << j << "]: ";
+            cout << arr[i][j]<<endl;
+        }
+    }
+}
 
-  }
+  
 int main(){
-  partOne(); 
+  //partOne(); 
   partTwo();
-  partThree();
+  //partThree();
 
 }
